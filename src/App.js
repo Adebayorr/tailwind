@@ -1,19 +1,22 @@
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import './index.css';
+import RootLayout from './Layout/RootLayout';
+// import Home from './Home';
+import Events from './Events';
+import Homepage from './Homepage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="header flex w-full justify-between items-center px-4 py-2 bg-purple-400">
-        <h2 className="logo text-xl">Logo</h2>
-        <nav className="navbar flex gap-x-2 content-center">
-          <a href="/" className="p-2 hover:text-sky-300">Home</a>
-          <a href="/event" className="p-2 hover:text-sky-300">Events</a>
-          <a href="/menu" className="p-2 hover:text-sky-300">Menu</a>
-          <a href="/lodge" className="p-2 hover:text-sky-300">Lodge</a>
-        </nav>
-      </header>
 
-    </div>
+  const Router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<RootLayout />}>
+        <Route index element={<Homepage />} />
+        <Route path='/events' element={<Events />} />
+      </Route>
+    )
+  )
+  return (
+    <RouterProvider router={Router} />
   );
 }
 
