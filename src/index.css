@@ -11,4 +11,8 @@
   h4 {
     font-family: "Montserrat", sans-serif;
   }
+
+  a {
+    text-transform: uppercase;
+  }
 }
